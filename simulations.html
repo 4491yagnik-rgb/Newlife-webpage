@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Newlife</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="favicon.ico" alt="logo">
+                <a href="#">Newlife</a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="inventions.html">Inventions</a></li>
+                <li><a href="#">Simulations</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <section id="section-dashboard" class="tab-content dashboard-section">
+    <!-- Header -->
+    <br>
+    <div class="dashboard-header">
+        <span class="badge-title">Live Interactive Simulation</span>
+        <h2 class="simulator-title">Global Warming Impact Simulator</h2>
+        <p class="simulator-desc">Adjust predicted temperature anomalies to analyze projected sea level rises, displacement risks, and renewable mitigation requirements.</p>
+    </div>
+
+    <!-- Simulator Widget Grid -->
+    <div class="simulator-grid">
+        
+        <!-- Left Column: Interactive Slider Controls -->
+        <div class="glass-panel container left-panel">
+            <div class="panel-header">
+                <h3 class="orbitron panel-title"><i class="fa-solid fa-temperature-high icon-orange"></i>Global Temp Rise</h3>
+                <span id="temp-display" class="orbitron metric-display text-orange">1.5°C</span>
+            </div>
+
+            <!-- Range Input -->
+            <div class="slider-container">
+                <input type="range" id="temp-slider" min="1.5" max="4.0" step="0.1" value="1.5" oninput="updateClimateSimulation(this.value)" class="range-slider">
+                <div class="slider-labels font-mono">
+                    <span>1.5°C (Target)</span>
+                    <span>2.5°C</span>
+                    <span>4.0°C (Critical)</span>
+                </div>
+            </div>
+
+            <!-- Status Card -->
+            <div class="status-card">
+                <div class="status-header">
+                    <i class="fa-solid fa-circle-info icon-cyan"></i>
+                    <span>Simulation Assessment</span>
+                </div>
+                <p id="temp-status-desc" class="status-desc">
+                    At 1.5°C, climate impacts remain severe but manageable through aggressive global adoption of smart grids and clean mobility.
+                </p>
+            </div>
+            
+
+            <!-- Metrics Bar Graphic -->
+            <div class="metrics-container">
+                <!-- Bar 1 -->
+                <div class="metric-item">
+                    <div class="metric-info">
+                        <span class="metric-label">Predicted Sea Level Rise</span>
+                        <span id="sea-level-val" class="metric-val text-cyan">0.48 meters</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="sea-level-bar" class="progress-bar bg-cyan smooth" style="width: 25%;"></div>
+                    </div>
+                </div>
+
+                <!-- Bar 2 -->
+                <div class="metric-item">
+                    <div class="metric-info">
+                        <span class="metric-label">Population Risk Exposure</span>
+                        <span id="risk-pop-val" class="metric-val text-orange">120 Million</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="risk-pop-bar" class="progress-bar bg-orange smooth" style="width: 30%;"></div>
+                    </div>
+                </div>
+
+                <!-- Bar 3 -->
+                <div class="metric-item">
+                    <div class="metric-info">
+                        <span class="metric-label">Required Renewable Acceleration</span>
+                        <span id="renewable-req-val" class="metric-val text-green">3.5x Current Speed</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="renewable-req-bar" class="progress-bar bg-green smooth" style="width: 40%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Right Column: Visual Dashboard Indicator Panel -->
+        <div class="glass-panel container right-panel">
+        
+
+            <!-- Data View Toggle Buttons -->
+            <div class="toggle-section">
+                <label class="toggle-label">Data Perspective</label>
+                <div class="toggle-grid">
+                    <button onclick="setDashboardView('immediate')" id="btn-view-immediate" class="view-toggle-btn btn-active">Immediate</button>
+                    <button onclick="setDashboardView('timeline')" id="btn-view-timeline" class="view-toggle-btn btn-inactive">Timeline</button>
+                    <button onclick="setDashboardView('predictions')" id="btn-view-predictions" class="view-toggle-btn btn-inactive">Predictions</button>
+                </div>
+            </div>
+            <h3 id="dashboard-view-title" class="display-title"></h3>
+            <!-- Dynamic Insight Card -->
+            <div id="perspective-content" class="insight-card">
+                <!-- Populated by JS based on selection -->
+            </div>
+        </div>
+    </div>
+    <div></div>
+</section>
+
+    </main>
+    <footer>
+        <div class="footer">
+            <p>project made for graphic design competion</p>
+            <p>© 2026 | All rights are reversed</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateClimateSimulation(val) {
+            document.getElementById('temp-display').innerText = parseFloat(val).toFixed(1) + '°C';
+            
+            // Calculate proportional values based on temp slider (1.5 to 4.0)
+            const factor = (val - 1.5) / 2.5; // 0 to 1 scale
+
+            const seaLevel = (0.48 + factor * 0.82).toFixed(2);
+            const riskPop = Math.round(120 + factor * 680);
+            const renewableReq = (3.5 + factor * 6.5).toFixed(1);
+
+            document.getElementById('sea-level-val').innerText = seaLevel + ' meters';
+            document.getElementById('sea-level-bar').style.width = (25 + factor * 70) + '%';
+
+            document.getElementById('risk-pop-val').innerText = riskPop + ' Million';
+            document.getElementById('risk-pop-bar').style.width = (30 + factor * 65) + '%';
+
+            document.getElementById('renewable-req-val').innerText = renewableReq + 'x Speed';
+            document.getElementById('renewable-req-bar').style.width = (40 + factor * 55) + '%';
+
+            const desc = document.getElementById('temp-status-desc');
+            if (val <= 2.0) {
+                desc.innerText = "Target manageable threshold. Moderate coastal infrastructure adaptation required.";
+                desc.className = "green";
+            } else if (val <= 3.0) {
+                desc.innerText = "Severe risk zone. Accelerated displacement of coastal communities and agricultural stress.";
+                desc.className = "orange";
+            } else {
+                desc.innerText = "Critical climate tipping point. Irreversible ecosystem disruption and widespread coastal flooding.";
+                desc.className = "red";
+            }
+        }
+
+        const dashboardPerspectives = {
+            immediate: "Immediate Stats: Current global carbon offset initiatives have stabilized baseline energy demands, but require an extra 1.2 Terawatts of renewable capacity before 2028 to prevent runaway thermal absorption.",
+            timeline: "Historical Timeline: 2010 (1.0°C rise) → 2020 (1.2°C rise) → 2026 (1.35°C current trajectory). Prompt intervention halts the escalation curve prior to 2040.",
+            predictions: "Future Predictions: AI models forecast that achieving an 85% electric grid parity by 2035 will cap sea level rise below 0.5 meters globally."
+        };
+
+        function setDashboardView(viewKey) {
+            const btns = document.querySelectorAll('.view-toggle-btn');
+            btns.forEach(b => {
+                b.classList.remove('btn-active');
+                b.classList.add('btn-inactive');
+            });
+
+            const activeBtn = document.getElementById('btn-view-' + viewKey);
+            if (activeBtn) {
+                activeBtn.classList.remove('btn-inactive');
+                activeBtn.classList.add('btn-active');
+            }
+
+            document.getElementById('dashboard-view-title').innerText = viewKey.charAt(0).toUpperCase() + viewKey.slice(1) + " Perspective";
+            document.getElementById('perspective-content').innerText = dashboardPerspectives[viewKey];
+        }
+
+        // Initialize Dashboard Perspective
+        setDashboardView('immediate');
+
+
+    </script>
+</body>
+
+</html>
