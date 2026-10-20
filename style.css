@@ -31,6 +31,10 @@ header{
     text-decoration: none;
 }
 
+main{
+  flex: 1;
+}
+
 /* Style the unordered list container */
 .nav-links {
     display: flex;
