@@ -125,11 +125,79 @@
             <!-- Dynamic Insight Card -->
             <div id="perspective-content" class="insight-card">
                 <!-- Populated by JS based on selection -->
+
             </div>
         </div>
     </div>
     <div></div>
 </section>
+
+    <!-- Symmetrical Comparison Analytics Block -->
+<div class="dashboard-visual-section">
+    <div class="graph-container-card">
+        <div class="graph-header">
+            <h3>⚡ Energy Analytics Dashboard</h3>
+            <div class="graph-legend">
+                <span class="legend-item"><span class="legend-dot production"></span>Energy Produced</span>
+                <span class="legend-item"><span class="legend-dot consumption"></span>Energy Consumed</span>
+            </div>
+            <p>Following graph represent the energy usage for past few years</p>
+        </div>
+        
+        <!-- Infinite Scale SVG Vector Graph -->
+        <svg viewBox="0 0 1000 350" class="analytics-svg" xmlns="http://w3.org">
+            <!-- Background Systematic Matrix Grid Lines -->
+            <g stroke="#222222" stroke-width="1">
+                <line x1="50" y1="50" x2="950" y2="50" />
+                <line x1="50" y1="125" x2="950" y2="125" />
+                <line x1="50" y1="200" x2="950" y2="200" />
+                <line x1="50" y1="275" x2="950" y2="275" />
+                <line x1="50" y1="300" x2="950" y2="300" stroke="#444444" stroke-width="2" />
+            </g>
+
+            <!-- X-Axis Timeline Labels -->
+            <g font-family="'Roboto', sans-serif" font-size="12" fill="#888888" text-anchor="middle">
+                <text x="50" y="325">2024</text>
+                <text x="275" y="325">2025</text>
+                <text x="500" y="325">2026</text>
+                <text x="725" y="325">2027</text>
+                <text x="950" y="325">2028</text>
+            </g>
+
+            <!-- Y-Axis Value Metrics Labels -->
+            <g font-family="'Roboto', sans-serif" font-size="12" fill="#888888" text-anchor="end">
+                <text x="40" y="55">100%</text>
+                <text x="40" y="130">75%</text>
+                <text x="40" y="205">50%</text>
+                <text x="40" y="280">25%</text>
+            </g>
+
+            <!-- Trajectory Path 1: Energy Produced (Cyan Line) -->
+            <path d="M 50 260 L 275 210 L 500 130 L 725 90 L 950 60" 
+                  fill="none" stroke="#00f2fe" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+            <!-- Trajectory Path 2: Energy Consumed (Neon Green Line) -->
+            <path d="M 50 120 L 275 160 L 500 145 L 725 210 L 950 190" 
+                  fill="none" stroke="#4facfe" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,2" />
+
+            <!-- Focal Node Data Interaction Points -->
+            <!-- Produced Nodes -->
+            <circle cx="50" cy="260" r="5" fill="#00f2fe" />
+            <circle cx="275" cy="210" r="5" fill="#00f2fe" />
+            <circle cx="500" cy="130" r="5" fill="#00f2fe" />
+            <circle cx="725" cy="90" r="5" fill="#00f2fe" />
+            <circle cx="950" cy="60" r="5" fill="#00f2fe" />
+
+            <!-- Consumed Nodes -->
+            <circle cx="50" cy="120" r="5" fill="#4facfe" />
+            <circle cx="275" cy="160" r="5" fill="#4facfe" />
+            <circle cx="500" cy="145" r="5" fill="#4facfe" />
+            <circle cx="725" cy="210" r="5" fill="#4facfe" />
+            <circle cx="950" cy="190" r="5" fill="#4facfe" />
+        </svg>
+    </div>
+</div>
+
 
     </main>
     <footer>
