@@ -107,6 +107,8 @@ main {
   /* Adds breathing room for paragraph text */
   color: #333333;
   margin-bottom: 10vh;
+  text-wrap: center;
+  text-align: center;
 }
 
 
@@ -385,12 +387,17 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 2rem; /* space-y-8 */
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* --- Header Section --- */
 .dashboard-header {
   text-align: center;
-  max-w: 48rem; /* max-w-3xl */
+  max-width: 48rem; /* max-w-3xl */
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -413,7 +420,7 @@ footer {
   color: #000000;
 }
 
-.simulation-desc {
+.simulator-desc {
   width: 100%;
   box-sizing: border-box;
 }
@@ -484,6 +491,7 @@ footer {
 .slider-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .range-slider {
@@ -549,7 +557,7 @@ footer {
 
 .toggle-grid {
   display: grid;
-  grid-template-cols: repeat(3, minmax(0, 1fr)); /* grid-cols-3 */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-cols-3 */
   gap: 0.5rem; /* gap-2 */
 }
 
@@ -595,11 +603,14 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem; /* space-y-4 */
+  width: 100%;
 }
 
 .metric-info {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
   font-size: 0.75rem; 
   font-weight: 500; /* font-medium */
   margin-bottom: 0.25rem; /* mb-1 */
@@ -735,6 +746,7 @@ footer {
   text-align: center;
   width: 50rem;
   max-width: 90%;
+
 }
 
 
@@ -875,7 +887,7 @@ footer {
 .dashboard-visual-section {
   max-width: 1300px;
   margin: 3rem auto 6rem auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   box-sizing: border-box;
   width: 100%;
 }
@@ -943,4 +955,284 @@ footer {
   height: auto;
   display: block;
   overflow: visible;
+}
+
+@media (min-width: 696px) and (max-width: 1027px) {
+  .current-resources > .resource-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc((100% - 2rem) / 2);
+    justify-self: center;
+  }
+}
+
+@media (min-width: 901px) {
+  .simulator-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: stretch;
+  }
+
+  .left-panel,
+  .right-panel {
+    min-width: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .simulator-grid {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    flex-basis: auto;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1.5rem;
+  }
+
+  .dashboard-header,
+  .dashboard-visual-section {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dashboard-section {
+    padding: 0 1rem;
+  }
+
+  .introduction h1,
+  .invention h1,
+  .introcurrent h1,
+  .introquiz h1 {
+    font-size: clamp(2.25rem, 7vw, 4.5rem);
+    margin: 8vh 1.5rem 1rem;
+  }
+
+  .invention p,
+  .introcurrent p,
+  .introquiz p {
+    width: calc(100% - 3rem);
+    max-width: 50rem;
+  }
+
+  .content-row {
+    flex-wrap: wrap;
+  }
+
+  .content-row img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .info {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 16px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .nav-links li {
+    padding: 4px 6px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .projects {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .project {
+    min-width: 0;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .content-row img {
+    align-self: center;
+  }
+
+  .info p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .introduction h1,
+  .invention h1,
+  .introcurrent h1,
+  .introquiz h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin: 4vh 1rem 1rem;
+  }
+
+  .introduction p,
+  .invention p,
+  .introcurrent p,
+  .introquiz p {
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    font-size: 1rem;
+    margin-bottom: 5vh;
+  }
+
+  .introduction h2 {
+    font-size: 1.75rem;
+    margin: 0 1rem 1.5rem;
+  }
+
+  .monitors {
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  .monitors .display {
+    width: 100%;
+    margin: 0 0 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .thankyou {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .thankyou .part {
+    width: min(100% - 2rem, 20rem);
+    height: auto;
+    margin: 1rem 0;
+    padding: 1.5rem;
+  }
+
+  .thanks h2 {
+    margin: 2rem 1rem;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    text-align: center;
+  }
+
+  .current-resources {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .resource-card {
+    min-width: 0;
+    margin-bottom: 1rem;
+  }
+
+  .quizquestions {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+    margin-bottom: 5vh;
+  }
+
+  .question-card {
+    min-width: 0;
+    padding: 1.25rem;
+  }
+
+  .question-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .question-card li {
+    padding: 0.5rem;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  .footer p {
+    max-width: 100%;
+  }
+
+  .badge-title {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+  }
+
+  .simulator-title {
+    font-size: clamp(1.5rem, 7vw, 1.875rem);
+  }
+
+  .simulator-desc {
+    padding: 0 1rem;
+  }
+
+  .left-panel,
+  .right-panel {
+    padding: 1rem;
+  }
+
+  .panel-header,
+  .metric-info {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .panel-title {
+    font-size: 1rem;
+  }
+
+  .metric-display {
+    font-size: 1.25rem;
+    margin-left: 0;
+  }
+
+  .view-toggle-btn {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .dashboard-visual-section {
+    padding: 0 1rem;
+  }
+
+  .graph-container-card {
+    padding: 1rem;
+  }
+
+  .graph-legend {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
 }
