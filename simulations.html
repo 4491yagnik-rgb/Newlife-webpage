@@ -132,7 +132,6 @@
     <div></div>
 </section>
 
-    <!-- Symmetrical Comparison Analytics Block -->
 <div class="dashboard-visual-section">
     <div class="graph-container-card">
         <div class="graph-header">
@@ -144,7 +143,6 @@
             <p>Following graph represent the energy usage for past few years</p>
         </div>
         
-        <!-- Infinite Scale SVG Vector Graph -->
         <svg viewBox="0 0 1000 350" class="analytics-svg" xmlns="http://w3.org">
             <!-- Background Systematic Matrix Grid Lines -->
             <g stroke="#222222" stroke-width="1">
@@ -172,23 +170,22 @@
                 <text x="40" y="280">25%</text>
             </g>
 
-            <!-- Trajectory Path 1: Energy Produced (Cyan Line) -->
+           
             <path d="M 50 260 L 275 210 L 500 130 L 725 90 L 950 60" 
                   fill="none" stroke="#00f2fe" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
 
-            <!-- Trajectory Path 2: Energy Consumed (Neon Green Line) -->
+           
             <path d="M 50 120 L 275 160 L 500 145 L 725 210 L 950 190" 
                   fill="none" stroke="#4facfe" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,2" />
 
-            <!-- Focal Node Data Interaction Points -->
-            <!-- Produced Nodes -->
+
             <circle cx="50" cy="260" r="5" fill="#00f2fe" />
             <circle cx="275" cy="210" r="5" fill="#00f2fe" />
             <circle cx="500" cy="130" r="5" fill="#00f2fe" />
             <circle cx="725" cy="90" r="5" fill="#00f2fe" />
             <circle cx="950" cy="60" r="5" fill="#00f2fe" />
 
-            <!-- Consumed Nodes -->
+
             <circle cx="50" cy="120" r="5" fill="#4facfe" />
             <circle cx="275" cy="160" r="5" fill="#4facfe" />
             <circle cx="500" cy="145" r="5" fill="#4facfe" />
@@ -263,7 +260,6 @@
             document.getElementById('perspective-content').innerText = dashboardPerspectives[viewKey];
         }
 
-        // Initialize Dashboard Perspective
         setDashboardView('immediate');
 
 
